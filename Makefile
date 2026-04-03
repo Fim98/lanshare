@@ -15,6 +15,7 @@ build:
 	mkdir -p $(MACOS) $(RESOURCES)
 	cp $(BIN) $(MACOS)/$(APP_NAME)
 	cp packaging/Info.plist $(CONTENTS)/Info.plist
+	cp packaging/AppIcon.icns $(RESOURCES)/AppIcon.icns
 	codesign --force --deep --sign "$(SIGN_ID)" $(APP_BUNDLE)
 	@echo "构建完成: $(APP_BUNDLE)"
 

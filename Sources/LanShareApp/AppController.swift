@@ -27,12 +27,17 @@ final class ApprovalProvider: UploadApprovalProviding {
 
 private enum AlertIconProvider {
     static func bestAvailableIcon() -> NSImage? {
-        if let appIcon = NSApp.applicationIconImage, appIcon.size.width > 0, appIcon.size.height > 0 {
+        if let appIcon = NSApp.applicationIconImage, appIcon.size.width > 1 {
             return appIcon
         }
 
-        let config = NSImage.SymbolConfiguration(pointSize: 32, weight: .regular, scale: .large)
-        return NSImage(systemSymbolName: "externaldrive.badge.questionmark", accessibilityDescription: "LanShare 提示")?
+        if let url = Bundle.main.url(forResource: "AppIcon", withExtension: "icns"),
+           let image = NSImage(contentsOf: url), image.size.width > 0 {
+            return image
+        }
+
+        let config = NSImage.SymbolConfiguration(pointSize: 48, weight: .medium, scale: .large)
+        return NSImage(systemSymbolName: "arrow.up.arrow.down.circle.fill", accessibilityDescription: "LanShare 提示")?
             .withSymbolConfiguration(config)
     }
 }
@@ -68,7 +73,7 @@ final class AppController: NSObject {
     private func setupStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
-            let statusIcon = NSImage(systemSymbolName: "externaldrive.fill.badge.wifi", accessibilityDescription: "LanShare")
+            let statusIcon = NSImage(systemSymbolName: "arrow.up.arrow.down.circle.fill", accessibilityDescription: "LanShare")
             statusIcon?.isTemplate = true
             button.image = statusIcon
             button.imagePosition = .imageOnly
