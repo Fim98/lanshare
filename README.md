@@ -2,6 +2,17 @@
 
 macOS 菜单栏局域网文件共享工具。无需账号、无需服务器，同一网络下的设备通过浏览器即可互传文件。
 
+## 截图
+
+<p align="center">
+  <img src="docs/menu-bar.png" alt="菜单栏" width="300" />
+  <img src="docs/use.png" alt="Web UI 与上传确认弹窗" width="420" />
+</p>
+
+<p align="center">
+  <em>左：菜单栏状态与操作菜单 ｜ 右：浏览器 Web UI 及上传确认弹窗</em>
+</p>
+
 ## 功能
 
 - **文件共享** — 将文件或目录添加到共享列表，局域网内其他设备通过浏览器下载
